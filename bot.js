@@ -147,7 +147,7 @@ if (!process.env.clientId || !process.env.clientSecret) {
 
 
         bot.replyPrivate(message, 'Here are your free books: https://www.google.com/, only you can see and access them \n' +
-              ' Fill in you\'re email and claim');
+              ' Fill in your email and claim. Enjoy and feel free to explore slack and ask any questions!');
       });
       controller.on('direct_message,direct_mention,mention', function(bot, message) {
           controller.studio.runTrigger(bot, message.text, message.user, message.channel, message).then(function(convo) {

@@ -189,6 +189,6 @@ function usage_tip() {
 }
 
 
-var URLS = require('./.data/db/json/urls.json');
+var URLS = require('./.data/db/json/urls.json').urls;
 
-console.log(URLS.urls);
+console.log(URLS);

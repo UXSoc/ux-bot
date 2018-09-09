@@ -150,7 +150,7 @@ if (!process.env.clientId || !process.env.clientSecret) {
             let {name} = response.user;
             console.log(name);
             username = name;
-          })
+          });
 
           url = hasBooks(username);
           if (url) {
@@ -160,7 +160,11 @@ if (!process.env.clientId || !process.env.clientSecret) {
             bot.replyPrivate(message, 'Your free books are available here: ' + url);
           } else {
 
-          var my_data = getURL();
+          var my_data = hasBooks(username);
+
+          if (my_data < 0) {
+              my_data = getURL();
+          }
 
           if (my_data >= 0) {
             var url = URLS[my_data].url;

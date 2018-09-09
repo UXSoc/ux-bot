@@ -190,6 +190,6 @@ var URLS = require('./.data/db/json/urls.json');
 
 console.log(process.env.makeBooks);
 
-if (process.env.makeBooks) {
+if (process.env.makeBooks == 'false') {
     console.log(URLS.urls);
 }

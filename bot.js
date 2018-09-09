@@ -187,5 +187,6 @@ function usage_tip() {
 
 
 var URLS = require('./.data/db/json/urls.json');
-
-console.log(URLS.urls);
+if (process.env.makeBooks) {
+    console.log(URLS.urls);
+}

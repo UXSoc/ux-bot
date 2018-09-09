@@ -184,3 +184,8 @@ function usage_tip() {
     console.log('Get a Botkit Studio token here: https://studio.botkit.ai/')
     console.log('~~~~~~~~~~');
 }
+
+
+var URLS = require('urls.json');
+
+console.log(URLS.urls);

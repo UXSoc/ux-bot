@@ -195,10 +195,9 @@ var URLS = require('./.data/db/json/urls.json').urls;
 //else return 0
 function getURL() {
     var all =  URLS;
-    for(var url of all) {
-        console.log(url.username);
+    for(var i=0; i<URLS.length; i++) {
+      console.log(URLS[i].url);
     }
-
 }
 
 console.log(URLS);

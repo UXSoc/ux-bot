@@ -20,3 +20,9 @@ To sync the github repo with the slack page by first committing them running `np
 This should work if you have access the api-keys private repo and have it installed. To get access you need to be a contributor to https://github.com/jhburns/api-keys. Notify Jonathan Burns @jburns on slakc or email jburns@chapman.edu.
 
 The keys for this project are under the sync-config-slack.json file and are required in the sync script.
+
+## Getting books to work
+
+The /books command uses a file in ./data/db/json/urls.json to store and read urls to distribute.
+
+If it doesn't already exist, create it locally in glitch, NOT github. This ensures it is not changed between git reloads.

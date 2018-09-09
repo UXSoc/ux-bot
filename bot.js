@@ -153,6 +153,9 @@ if (!process.env.clientId || !process.env.clientSecret) {
 
           url = hasBooks(username);
           if (url) {
+            console.log(URLS);
+            console.log(url);
+            console.log(username);
             bot.replyPrivate(message, 'Your free books are available here: ' + url);
           } else {
 

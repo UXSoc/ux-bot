@@ -37,7 +37,6 @@ var controller = Botkit.slackbot(
     clientId: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
     scopes: ['commands'],
-    json_file_store: __dirname + '/bot_storage/db/'
 });
 
 controller.setupWebserver(process.env.PORT, function (err, webserver) {

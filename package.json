@@ -22,7 +22,7 @@
     "update": "git push && npm run sync"
   },
   "devDependencies": {
-    "botkit": "0.0.5",
+    "botkit": "0.6.16",
     "sync-glitch-cli": "^2.0.1",
     "botkit-storage-mongo": "^1.0.2",
     "mongodb": "^1.4.39"

@@ -22,7 +22,10 @@
     "update": "git push && npm run sync"
   },
   "devDependencies": {
-    "sync-glitch-cli": "^2.0.1"
+    "botkit": "0.0.5",
+    "sync-glitch-cli": "^2.0.1",
+    "botkit-storage-mongo": "^1.0.2",
+    "mongodb": "^1.4.39"
   },
   "optionalDependencies": {
     "api-keys": "git+ssh://git@github.com/jhburns/api-keys.git"

@@ -145,9 +145,9 @@ if (!process.env.clientId || !process.env.clientSecret) {
         // reply to slash command
         // bot.replyPublic(message,'Everyone can see this part of the slash command');
 
-
-        bot.replyPrivate(message, 'Here are your free books: https://www.google.com/, only you can see and access them \n' +
-              ' Fill in your email and claim. Enjoy and feel free to explore slack and ask any questions!');
+        var url = 'https://www.google.com/';
+        bot.replyPrivate(message, 'Here are your free books: ' + url + '\n'
+          + 'Only you can see and access them! Just fill in your email and claim. Enjoy, and feel free to explore Slack and ask any questions  on #general :slightly_smiling_face:');
       });
       controller.on('direct_message,direct_mention,mention', function(bot, message) {
           controller.studio.runTrigger(bot, message.text, message.user, message.channel, message).then(function(convo) {

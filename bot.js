@@ -188,4 +188,4 @@ function usage_tip() {
 
 var URLS = require('./.data/db/json/urls.json');
 
-console.log("books");
+console.log(URLS.urls);

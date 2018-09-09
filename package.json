@@ -4,9 +4,7 @@
   "description": "A starter kit for building a custom Slack bot with Botkit Studio",
   "main": "bot.js",
   "scripts": {
-    "start": "node bot.js",
-    "sync": "node glitch-sync.js",
-    "update": "git push && npm run sync"
+    "start": "node bot.js"
   },
   "dependencies": {
     "body-parser": "^1.15.2",
@@ -20,7 +18,6 @@
     "node-env-file": "^0.1.8",
     "querystring": "^0.2.0",
     "request": "^2.79.0",
-    "sync-glitch-cli": "^2.0.1",
     "wordfilter": "^0.2.6"
   },
   "devDependencies": {},

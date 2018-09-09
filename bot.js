@@ -148,6 +148,7 @@ if (!process.env.clientId || !process.env.clientSecret) {
           var username = '';
           bot.api.users.info({user: message.user}, (error, response) => {
             let {name} = response.user;
+            console.log(name);
             username = name;
           })
 

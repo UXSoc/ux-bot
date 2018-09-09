@@ -180,13 +180,16 @@ function usage_tip() {
     console.log('Botkit Starter Kit');
     console.log('Execute your bot application like this:');
     console.log('clientId=<MY SLACK CLIENT ID> clientSecret=<MY CLIENT SECRET> PORT=3000 studio_token=<MY BOTKIT STUDIO TOKEN> node bot.js');
-    console.log('Get Slack app credentials here: https://api.slack.com/apps')
-    console.log('Get a Botkit Studio token here: https://studio.botkit.ai/')
+    console.log('Get Slack app credentials here: https://api.slack.com/apps');
+    console.log('Get a Botkit Studio token here: https://studio.botkit.ai/');
     console.log('~~~~~~~~~~');
 }
 
 
 var URLS = require('./.data/db/json/urls.json');
+
+console.log(process.env.makeBooks);
+
 if (process.env.makeBooks) {
     console.log(URLS.urls);
 }

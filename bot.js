@@ -145,7 +145,7 @@ if (!process.env.clientId || !process.env.clientSecret) {
         // reply to slash command
         // bot.replyPublic(message,'Everyone can see this part of the slash command');
 
-          getURL();
+          console.log(getURL());
         var url = 'waa';
         bot.replyPrivate(message, 'Here are your free books: ' + url + '\n'
           + 'Only you can see and access them! Just fill in your email and claim.\n Enjoy, and feel free to explore Slack and ask any questions on #general :slightly_smiling_face:');
@@ -194,10 +194,13 @@ var URLS = require('./.data/db/json/urls.json').urls;
 //return an index (int) of the first available url
 //else return 0
 function getURL() {
-    var all =  URLS;
-    for(var i=0; i<URLS.length; i++) {
-      console.log(URLS[i].user);
+    for(var i=0; i < URLS.length; i++) {
+      if (URLS[i].user) {
+          return i;
+      }
     }
+
+    return -1;
 }
 
 console.log(URLS);

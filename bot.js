@@ -145,7 +145,8 @@ if (!process.env.clientId || !process.env.clientSecret) {
         // reply to slash command
         // bot.replyPublic(message,'Everyone can see this part of the slash command');
 
-        var url = URLS[0].url;
+          getURL();
+        var url = 'waa';
         bot.replyPrivate(message, 'Here are your free books: ' + url + '\n'
           + 'Only you can see and access them! Just fill in your email and claim.\n Enjoy, and feel free to explore Slack and ask any questions on #general :slightly_smiling_face:');
       });
@@ -188,7 +189,15 @@ function usage_tip() {
     console.log('~~~~~~~~~~');
 }
 
-
 var URLS = require('./.data/db/json/urls.json').urls;
+
+//return an index (int) of the first available url
+//else return 0
+function getURL() {
+    for(var url of URLS.urls) {
+        console.log(url.username);
+    }
+
+}
 
 console.log(URLS);

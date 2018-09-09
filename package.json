@@ -25,7 +25,8 @@
   },
   "devDependencies": {
     "sync-glitch-cli": "^2.0.1",
-    "api-keys": "git+ssh://git@github.com/jhburns/api-keys.git"
+    "api-keys": "git+ssh://git@github.com/jhburns/api-keys.git",
+    "write-json": "^3.0.1"
   },
   "repository": {
     "type": "git",

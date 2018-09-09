@@ -23,9 +23,7 @@
   },
   "devDependencies": {
     "botkit": "0.6.16",
-    "sync-glitch-cli": "^2.0.1",
-    "botkit-storage-mongo": "^1.0.2",
-    "mongodb": "^1.4.39"
+    "sync-glitch-cli": "^2.0.1"
   },
   "optionalDependencies": {
     "api-keys": "git+ssh://git@github.com/jhburns/api-keys.git"

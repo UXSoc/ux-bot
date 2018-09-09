@@ -144,6 +144,17 @@ if (!process.env.clientId || !process.env.clientSecret) {
       controller.on('slash_command',function(bot,message) {
         // reply to slash command
         // bot.replyPublic(message,'Everyone can see this part of the slash command');
+        
+          var username = '';
+          bot.api.users.info({user: message.user}, (error, response) => {
+            let {name} = response.user;
+            username = name;
+          })
+
+          url = hasBooks(username);
+          if (url) {
+            bot.replyPrivate(message, 'Your free books are available here: ' + url);
+          } else {
 
           var my_data = getURL();
 
@@ -151,15 +162,12 @@ if (!process.env.clientId || !process.env.clientSecret) {
             var url = URLS[my_data].url;
             bot.replyPrivate(message, 'Here are your free books: ' + url + '\n'
               + 'Only you can see and access them! Just fill in your email and claim.\n Enjoy, and feel free to explore Slack and ask any questions on #general :slightly_smiling_face:');
-            bot.api.users.info({user: message.user}, (error, response) => {
-              let {name} = response.user;
-              URLS[my_data].user = name;
-              console.log(name);
-            })
+              URLS[my_data].user = username;
         } else {
               bot.replyPrivate(message, "Sorry, there are no more books left!" + '\n' +
                   'Feel free to explore Slack and ask any questions on #general :slightly_smiling_face:');
         }
+          }
       });
 
       controller.on('direct_message,direct_mention,mention', function(bot, message) {
@@ -202,6 +210,16 @@ function usage_tip() {
 }
 
 var URLS = require('./.data/db/json/urls.json').urls;
+
+function hasBooks(username) {
+    for(var i=0; i < URLS.length; i++) {
+      if (URLS[i].user === username) {
+          return URLS[i].url;
+      }
+    }
+    return false;
+}
+
 
 //return an index (int) of the first available url
 //else return 0

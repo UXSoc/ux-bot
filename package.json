@@ -24,8 +24,7 @@
     "wordfilter": "^0.2.6"
   },
   "devDependencies": {
-    "sync-glitch-cli": "^2.0.1",
-    "api-keys": "git+ssh://git@github.com/jhburns/api-keys.git"
+    "sync-glitch-cli": "^2.0.1"
   },
   "repository": {
     "type": "git",
@@ -40,6 +39,9 @@
     "chatbots",
     "slack"
   ],
+  "optionalDependencies": {
+    "api-keys": "git+ssh://git@github.com/jhburns/api-keys.git"
+  },
   "author": "ben@howdy.ai",
   "license": "ISC"
 }

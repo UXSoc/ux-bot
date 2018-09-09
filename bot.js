@@ -32,13 +32,15 @@ if (!process.env.CLIENT_ID || !process.env.CLIENT_SECRET || !process.env.PORT ||
     process.exit(1);
 }
 
+
+}
+
 var controller = Botkit.slackbot(
 {
     clientId: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    scopes: ['commands', 'team:read'],
-    json_file_store: __dirname + '/bot_storage/db/',
-    debug: true
+    scopes: ['commands'],
+    json_file_store: __dirname + '/bot_storage/db/'
 });
 
 controller.setupWebserver(process.env.PORT, function (err, webserver) {

@@ -148,12 +148,13 @@ if (!process.env.clientId || !process.env.clientSecret) {
           var my_data = getURL();
 
           if (my_data >= 0) {
-            var url = 'waa';
+            var url = URLS[my_data].url;
             bot.replyPrivate(message, 'Here are your free books: ' + url + '\n'
               + 'Only you can see and access them! Just fill in your email and claim.\n Enjoy, and feel free to explore Slack and ask any questions on #general :slightly_smiling_face:');
             bot.api.users.info({user: message.user}, (error, response) => {
-              let {name, real_name} = response.user;
-              console.log(name, real_name);
+              let {name} = response.user;
+              URLS[my_data].user = name;
+              console.log(name);
             })
         } else {
               bot.replyPrivate(message, "Sorry, there are no more books left!" + '\n' +

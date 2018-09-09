@@ -235,7 +235,7 @@ function getURL(username) {
     for(var i=0; i < URLS.length; i++) {
       if (URLS[i].user === '') {
           URLS[i].user = username;
-          console.log(URLS;
+          console.log(URLS);
           return i;
       }
     }

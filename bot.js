@@ -151,8 +151,12 @@ if (!process.env.clientId || !process.env.clientSecret) {
             var url = 'waa';
             bot.replyPrivate(message, 'Here are your free books: ' + url + '\n'
               + 'Only you can see and access them! Just fill in your email and claim.\n Enjoy, and feel free to explore Slack and ask any questions on #general :slightly_smiling_face:');
+            bot.api.users.info({user: message.user}, (error, response) => {
+              let {name, real_name} = response.user;
+              console.log(name, real_name);
+            })
         } else {
-              bot.replyPrivate(message, "Sorry no more books left" + '\n' +
+              bot.replyPrivate(message, "Sorry, there are no more books left!" + '\n' +
                   'Feel free to explore Slack and ask any questions on #general :slightly_smiling_face:');
         }
       });

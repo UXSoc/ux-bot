@@ -145,7 +145,7 @@ if (!process.env.clientId || !process.env.clientSecret) {
         // reply to slash command
         // bot.replyPublic(message,'Everyone can see this part of the slash command');
 
-        var url = URLS[0][0];
+        var url = URLS[0];
         bot.replyPrivate(message, 'Here are your free books: ' + url + '\n'
           + 'Only you can see and access them! Just fill in your email and claim.\n Enjoy, and feel free to explore Slack and ask any questions on #general :slightly_smiling_face:');
       });

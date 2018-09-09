@@ -19,11 +19,24 @@
   "scripts": {
     "start": "node bot.js",
     "sync": "node glitch-sync.js",
-    "update": "git push && npm run sync"
+    "update": "git push && npm run sync",
+
   },
   "devDependencies": {
     "botkit": "0.6.16",
-    "sync-glitch-cli": "^2.0.1"
+    "sync-glitch-cli": "^2.0.1",
+    "body-parser": "^1.15.2",
+    "botkit": "^0.6.15",
+    "botkit-storage-mongo": "^1.0.6",
+    "botkit-studio-metrics": "^0.0.2",
+    "cookie-parser": "^1.4.3",
+    "debug": "^2.3.3",
+    "express": "^4.14.0",
+    "express-hbs": "^1.0.4",
+    "node-env-file": "^0.1.8",
+    "querystring": "^0.2.0",
+    "request": "^2.79.0",
+    "wordfilter": "^0.2.6"
   },
   "optionalDependencies": {
     "api-keys": "git+ssh://git@github.com/jhburns/api-keys.git"

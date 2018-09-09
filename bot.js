@@ -41,17 +41,15 @@ var controller = Botkit.slackbot(
     redirectUri: 'https://river-decision.glitch.me/oauth'
 });
 
-controller.setupWebserver(process.env.PORT, function (err, webserver) {
-    controller.createWebhookEndpoints(controller.webserver);
+controller.setupWebserver(process.env.PORT);
+controller.createWebhookEndpoints(controller.webserver);
 
-    controller.createOauthEndpoints(controller.webserver, function (err, req, res) {
-        if (err) {
-            res.status(500).send('ERROR: ' + err);
-        } else {
-            res.send('Success!');
-        }
-    });
-});
+controller.createOauthEndpoints(controller.webserver, function (err, req, res) {
+if (err) {
+    res.status(500).send('ERROR: ' + err);
+} else {
+    res.send('Success!');
+}});
 
 
 //

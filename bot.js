@@ -146,7 +146,7 @@ if (!process.env.clientId || !process.env.clientSecret) {
         // bot.replyPublic(message,'Everyone can see this part of the slash command');
 
 
-        bot.replyPrivate(message,'Here is your free books: https://www.google.com/, only you can see and access them');
+        bot.replyPrivate('Here is your free books: https://www.google.com/, only you can see and access them');
       })
       controller.on('direct_message,direct_mention,mention', function(bot, message) {
           controller.studio.runTrigger(bot, message.text, message.user, message.channel, message).then(function(convo) {

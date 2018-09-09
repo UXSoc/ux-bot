@@ -145,11 +145,18 @@ if (!process.env.clientId || !process.env.clientSecret) {
         // reply to slash command
         // bot.replyPublic(message,'Everyone can see this part of the slash command');
 
-          console.log(getURL());
-        var url = 'waa';
-        bot.replyPrivate(message, 'Here are your free books: ' + url + '\n'
-          + 'Only you can see and access them! Just fill in your email and claim.\n Enjoy, and feel free to explore Slack and ask any questions on #general :slightly_smiling_face:');
+          var my_data = getURL();
+
+          if (my_data >= 0) {
+            var url = 'waa';
+            bot.replyPrivate(message, 'Here are your free books: ' + url + '\n'
+              + 'Only you can see and access them! Just fill in your email and claim.\n Enjoy, and feel free to explore Slack and ask any questions on #general :slightly_smiling_face:');
+        } else {
+              bot.replyPrivate(message, "Sorry no more books left" + '\n' +
+                  'Feel free to explore Slack and ask any questions on #general :slightly_smiling_face:');
+        }
       });
+
       controller.on('direct_message,direct_mention,mention', function(bot, message) {
           controller.studio.runTrigger(bot, message.text, message.user, message.channel, message).then(function(convo) {
               if (!convo) {

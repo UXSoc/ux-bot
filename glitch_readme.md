@@ -12,3 +12,9 @@
 * Join our thriving community of Botkit developers and bot enthusiasts at large. Over 4500 members strong, [our open teams group](http://community.botkit.ai) is _the place_ for people interested in the art and science of making bots.
 
 testing testing testing
+
+# Syncing to Slack **Modfied from basic bot**
+
+To sync the github repo with the slack page by first committing them running `npm run update`.
+
+This should work if you have access the api-keys private repo and have it installed. To get access you need to be a contributor to https://github.com/jhburns/api-keys. Notify Jonathan Burns @jburns on slakc or email jburns@chapman.edu.

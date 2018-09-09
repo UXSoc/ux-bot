@@ -51,8 +51,6 @@ This bot demonstrates many of the core features of Botkit:
     -> http://howdy.ai/botkit
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-var writeJson = require('write-json');
-
 var env = require('node-env-file');
 env(__dirname + '/.env');
 

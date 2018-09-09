@@ -4,7 +4,9 @@
   "description": "A starter kit for building a custom Slack bot with Botkit Studio",
   "main": "bot.js",
   "scripts": {
-    "start": "node bot.js"
+    "start": "node bot.js",
+    "sync": "node glitch-sync.js",
+    "update": "git push && npm run sync"
   },
   "dependencies": {
     "body-parser": "^1.15.2",
@@ -20,7 +22,9 @@
     "request": "^2.79.0",
     "wordfilter": "^0.2.6"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "sync-glitch-cli": "^2.0.1"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/howdyai/botkit-starter-slack.git"

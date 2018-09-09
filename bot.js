@@ -163,7 +163,7 @@ if (!process.env.clientId || !process.env.clientSecret) {
           var my_data = hasBooks(username);
 
           if (my_data < 0) {
-              my_data = getURL();
+              my_data = getURL(username);
           }
 
           if (my_data >= 0) {
@@ -231,9 +231,11 @@ function hasBooks(username) {
 
 //return an index (int) of the first available url
 //else return 0
-function getURL() {
+function getURL(username) {
     for(var i=0; i < URLS.length; i++) {
       if (URLS[i].user === '') {
+          URLS[i].user = username;
+          console.log(URLS[i].user);
           return i;
       }
     }

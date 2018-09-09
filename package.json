@@ -22,10 +22,6 @@
     "update": "git push && npm run sync"
   },
   "devDependencies": {
-    "discord.js": "^11.4.2",
-    "ffmpeg": "0.0.4",
-    "libsodium-wrappers": "^0.7.3",
-    "opusscript": "0.0.6",
     "sync-glitch-cli": "^2.0.1"
   },
   "optionalDependencies": {

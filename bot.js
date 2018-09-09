@@ -51,6 +51,8 @@ This bot demonstrates many of the core features of Botkit:
     -> http://howdy.ai/botkit
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+var writeJson = require('write-json');
+
 var env = require('node-env-file');
 env(__dirname + '/.env');
 
@@ -144,38 +146,24 @@ if (!process.env.clientId || !process.env.clientSecret) {
       controller.on('slash_command',function(bot,message) {
         // reply to slash command
         // bot.replyPublic(message,'Everyone can see this part of the slash command');
-        
-          var username = '';
-          bot.api.users.info({user: message.user}, (error, response) => {
-            let {name} = response.user;
-            console.log(name);
-            username = name;
-          });
-
-          url = hasBooks(username);
-          if (url) {
-            console.log(URLS);
-            console.log(url);
-            console.log(username);
-            bot.replyPrivate(message, 'Your free books are available here: ' + url);
-          } else {
-
-          var my_data = hasBooks(username);
-
+        bot.api.users.info({user: message.user}, (error, response) => {
+          let {name} = response.user;
+          var my_data = hasBooks(name);
           if (my_data < 0) {
-              my_data = getURL(username);
+            my_data = getURL(name);
+            console.log(URLS);
           }
-
           if (my_data >= 0) {
             var url = URLS[my_data].url;
             bot.replyPrivate(message, 'Here are your free books: ' + url + '\n'
               + 'Only you can see and access them! Just fill in your email and claim.\n Enjoy, and feel free to explore Slack and ask any questions on #general :slightly_smiling_face:');
-              URLS[my_data].user = username;
-        } else {
+              URLS[my_data].user = name;
+          } else {
               bot.replyPrivate(message, "Sorry, there are no more books left!" + '\n' +
                   'Feel free to explore Slack and ask any questions on #general :slightly_smiling_face:');
-        }
           }
+
+        });
       });
 
       controller.on('direct_message,direct_mention,mention', function(bot, message) {
@@ -220,11 +208,13 @@ function usage_tip() {
 var URLS = require('./.data/db/json/urls.json').urls;
 
 function hasBooks(username) {
+  console.log(username);
     for(var i=0; i < URLS.length; i++) {
       if (URLS[i].user === username) {
           return i;
       }
     }
+  
     return -1;
 }
 
@@ -235,7 +225,6 @@ function getURL(username) {
     for(var i=0; i < URLS.length; i++) {
       if (URLS[i].user === '') {
           URLS[i].user = username;
-          console.log(URLS);
           return i;
       }
     }

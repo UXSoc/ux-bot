@@ -218,10 +218,10 @@ var URLS = require('./.data/db/json/urls.json').urls;
 function hasBooks(username) {
     for(var i=0; i < URLS.length; i++) {
       if (URLS[i].user === username) {
-          return URLS[i].url;
+          return i;
       }
     }
-    return false;
+    return -1;
 }
 
 

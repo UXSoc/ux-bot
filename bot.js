@@ -32,9 +32,6 @@ if (!process.env.CLIENT_ID || !process.env.CLIENT_SECRET || !process.env.PORT ||
     process.exit(1);
 }
 
-
-}
-
 var controller = Botkit.slackbot(
 {
     clientId: process.env.CLIENT_ID,

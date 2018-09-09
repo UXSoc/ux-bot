@@ -36,7 +36,7 @@ var controller = Botkit.slackbot(
 {
     clientId: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    scopes: ['commands'],
+    scopes: ['commands', 'team:read'],
     json_file_store: __dirname + '/bot_storage/db/',
     debug: true
 });

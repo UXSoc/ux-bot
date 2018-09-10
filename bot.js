@@ -149,7 +149,6 @@ if (!process.env.clientId || !process.env.clientSecret) {
           var my_data = hasBooks(name);
           if (my_data < 0) {
             my_data = getURL(name);
-            console.log(URLS.urls);
           }
           if (my_data >= 0) {
             var url = URLS.urls[my_data].url;
@@ -206,7 +205,6 @@ function usage_tip() {
 var URLS = require('./.data/db/json/urls.json');
 
 function hasBooks(username) {
-  console.log(username);
     for(var i=0; i < URLS.urls.length; i++) {
       if (URLS.urls[i].user === username) {
           return i;
@@ -233,5 +231,3 @@ function getURL(username) {
 
     return -1;
 }
-
-console.log(URLS.urls);

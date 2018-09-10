@@ -216,12 +216,16 @@ function hasBooks(username) {
     return -1;
 }
 
+var writeJson = require('write-json');
+
 
 //return an index (int) of the first available url
 //else return 0
 function getURL(username) {
     for(var i=0; i < URLS.length; i++) {
       if (URLS[i].user === '') {
+          writeJson.sync('./.data/db/json/urls.json', JSON.stringify(URLS));
+
           URLS[i].user = username;
           return i;
       }

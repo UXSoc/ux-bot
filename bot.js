@@ -149,13 +149,13 @@ if (!process.env.clientId || !process.env.clientSecret) {
           var my_data = hasBooks(name);
           if (my_data < 0) {
             my_data = getURL(name);
-            console.log(URLS);
+            console.log(URLS.urls);
           }
           if (my_data >= 0) {
-            var url = URLS[my_data].url;
+            var url = URLS.urls[my_data].url;
             bot.replyPrivate(message, 'Here are your free books: ' + url + '\n'
               + 'Only you can see and access them! Just fill in your email and claim.\n Enjoy, and feel free to explore Slack and ask any questions on #general :slightly_smiling_face:');
-              URLS[my_data].user = name;
+              URLS.urls[my_data].user = name;
           } else {
               bot.replyPrivate(message, "Sorry, there are no more books left!" + '\n' +
                   'Feel free to explore Slack and ask any questions on #general :slightly_smiling_face:');
@@ -203,12 +203,12 @@ function usage_tip() {
     console.log('~~~~~~~~~~');
 }
 
-var URLS = require('./.data/db/json/urls.json').urls;
+var URLS = require('./.data/db/json/urls.json');
 
 function hasBooks(username) {
   console.log(username);
-    for(var i=0; i < URLS.length; i++) {
-      if (URLS[i].user === username) {
+    for(var i=0; i < URLS.urls.length; i++) {
+      if (URLS.urls[i].user === username) {
           return i;
       }
     }
@@ -222,11 +222,11 @@ var writeJson = require('write-json');
 //return an index (int) of the first available url
 //else return 0
 function getURL(username) {
-    for(var i=0; i < URLS.length; i++) {
-      if (URLS[i].user === '') {
-          URLS[i].user = username;
+    for(var i=0; i < URLS.urls.length; i++) {
+      if (URLS.urls[i].user === '') {
+          URLS.urls[i].user = username;
 
-          writeJson.sync('./.data/db/json/urls.json', { "urls": URLS } );
+          writeJson.sync('./.data/db/json/urls.json', URLS );
           return i;
       }
     }
@@ -234,4 +234,4 @@ function getURL(username) {
     return -1;
 }
 
-console.log(URLS);
+console.log(URLS.urls);

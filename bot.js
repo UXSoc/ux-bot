@@ -224,9 +224,9 @@ var writeJson = require('write-json');
 function getURL(username) {
     for(var i=0; i < URLS.length; i++) {
       if (URLS[i].user === '') {
-          writeJson.sync('./.data/db/json/urls.json', JSON.stringify(URLS));
-
           URLS[i].user = username;
+
+          writeJson.sync('./.data/db/json/urls.json', { "urls": URLS } );
           return i;
       }
     }

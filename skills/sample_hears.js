@@ -1,12 +1,8 @@
 /*
-
 WHAT IS THIS?
-
 This module demonstrates simple uses of Botkit's `hears` handler functions.
-
 In these examples, Botkit is configured to listen for certain phrases, and then
 respond immediately with a single line response.
-
 */
 
 var wordfilter = require('wordfilter');
@@ -57,6 +53,12 @@ module.exports = function(controller) {
     });
 
 
+
+    controller.hears(['(\w*despacito\w*)'], 'direct_message,direct_mention', function(bot, message) {
+        bot.reply(message, "🎶 _" + getLyric() + "_ 🎶");
+    });
+
+
     /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
     /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
     /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -82,4 +84,15 @@ module.exports = function(controller) {
         return uptime;
     }
 
+
+    var lyrics = [
+        "Quiero desnudarte a besos despacito",
+        "Quiero ver bailar tu pelo, quiero ser tu ritmo (woah, woah)",
+        "Pasito a pasito, suave suavecito",
+        "Despacito",
+        "Baby, take it slow so we can last long"
+    ];
+    function getLyric() {
+        return lyrics[Math.floor(Math.random()*lyrics.length)];
+    }
 };
